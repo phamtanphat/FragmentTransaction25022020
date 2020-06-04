@@ -80,7 +80,6 @@ public class MainActivity extends AppCompatActivity {
             fragmentTransaction.commit();
         }
     }
-
     public void attach(View view) {
         AndroidFragment androidFragment =
                 (AndroidFragment) mFragmentManager.findFragmentByTag("fragmentandroid");
