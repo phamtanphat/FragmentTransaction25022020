@@ -1,9 +1,11 @@
 package com.example.fragment25022020;
 
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
@@ -65,8 +67,27 @@ public class MainActivity extends AppCompatActivity {
             fragmentTransaction.commit();
         }
     }
-
     public void popbackstack(View view) {
         mFragmentManager.popBackStack(2 , FragmentManager.POP_BACK_STACK_INCLUSIVE);
+    }
+
+    public void detach(View view) {
+        AndroidFragment androidFragment =
+                (AndroidFragment) mFragmentManager.findFragmentByTag("fragmentandroid");
+        if (androidFragment != null){
+            FragmentTransaction fragmentTransaction = mFragmentManager.beginTransaction();
+            fragmentTransaction.detach(androidFragment);
+            fragmentTransaction.commit();
+        }
+    }
+
+    public void attach(View view) {
+        AndroidFragment androidFragment =
+                (AndroidFragment) mFragmentManager.findFragmentByTag("fragmentandroid");
+        if (androidFragment != null){
+            FragmentTransaction fragmentTransaction = mFragmentManager.beginTransaction();
+            fragmentTransaction.attach(androidFragment);
+            fragmentTransaction.commit();
+        }
     }
 }

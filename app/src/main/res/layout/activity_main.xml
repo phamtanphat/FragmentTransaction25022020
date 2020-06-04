@@ -64,7 +64,7 @@
         android:text="Pop back stack" />
 
     <Button
-        android:onClick="Detach"
+        android:onClick="detach"
         android:id="@+id/buttonDetach"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -73,7 +73,7 @@
         android:text="Detach" />
 
     <Button
-        android:onClick="Attach"
+        android:onClick="attach"
         android:id="@+id/buttonAttach"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
