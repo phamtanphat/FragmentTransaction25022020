@@ -44,4 +44,10 @@ public class MainActivity extends AppCompatActivity {
         fragmentTransaction.replace(R.id.liearlayoutContainer,iosFragment);
         fragmentTransaction.commit();
     }
+
+    public void removeAndroid(View view) {
+    }
+
+    public void removeIos(View view) {
+    }
 }
