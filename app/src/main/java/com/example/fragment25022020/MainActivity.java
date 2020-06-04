@@ -20,14 +20,14 @@ public class MainActivity extends AppCompatActivity {
     public void addAndroid(View view) {
         FragmentTransaction fragmentTransaction = mFragmentManager.beginTransaction();
         AndroidFragment androidFragment = new AndroidFragment();
-        fragmentTransaction.add(R.id.liearlayoutContainer,androidFragment);
+        fragmentTransaction.add(R.id.liearlayoutContainer,androidFragment,"fragmentandroid");
         fragmentTransaction.commit();
     }
 
     public void addIos(View view) {
         FragmentTransaction fragmentTransaction = mFragmentManager.beginTransaction();
         IosFragment iosFragment = new IosFragment();
-        fragmentTransaction.add(R.id.liearlayoutContainer,iosFragment);
+        fragmentTransaction.add(R.id.liearlayoutContainer,iosFragment,"fragmentios");
         fragmentTransaction.commit();
     }
 
@@ -46,8 +46,21 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void removeAndroid(View view) {
+        AndroidFragment androidFragment =
+                (AndroidFragment) mFragmentManager.findFragmentByTag("fragmentandroid");
+        if (androidFragment != null){
+            FragmentTransaction fragmentTransaction = mFragmentManager.beginTransaction();
+            fragmentTransaction.remove(androidFragment);
+            fragmentTransaction.commit();
+        }
     }
 
     public void removeIos(View view) {
+        IosFragment iosFragment = (IosFragment) mFragmentManager.findFragmentByTag("fragmentios");
+        if (iosFragment != null){
+            FragmentTransaction fragmentTransaction = mFragmentManager.beginTransaction();
+            fragmentTransaction.remove(iosFragment);
+            fragmentTransaction.commit();
+        }
     }
 }
