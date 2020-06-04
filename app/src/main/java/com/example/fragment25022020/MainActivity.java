@@ -21,6 +21,7 @@ public class MainActivity extends AppCompatActivity {
         FragmentTransaction fragmentTransaction = mFragmentManager.beginTransaction();
         AndroidFragment androidFragment = new AndroidFragment();
         fragmentTransaction.add(R.id.liearlayoutContainer,androidFragment,"fragmentandroid");
+        fragmentTransaction.addToBackStack("FragmentAndroid");
         fragmentTransaction.commit();
     }
 
@@ -28,6 +29,7 @@ public class MainActivity extends AppCompatActivity {
         FragmentTransaction fragmentTransaction = mFragmentManager.beginTransaction();
         IosFragment iosFragment = new IosFragment();
         fragmentTransaction.add(R.id.liearlayoutContainer,iosFragment,"fragmentios");
+        fragmentTransaction.addToBackStack("FragmentIos");
         fragmentTransaction.commit();
     }
 
@@ -62,5 +64,9 @@ public class MainActivity extends AppCompatActivity {
             fragmentTransaction.remove(iosFragment);
             fragmentTransaction.commit();
         }
+    }
+
+    public void popbackstack(View view) {
+        mFragmentManager.popBackStack(2 , FragmentManager.POP_BACK_STACK_INCLUSIVE);
     }
 }
